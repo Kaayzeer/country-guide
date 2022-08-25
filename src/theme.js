@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     width: 100%;
     height: 100%;
-    font-family:  "Roboto", 
+    font-family: 'Nunito Sans', sans-serif;
 }
 `;
 

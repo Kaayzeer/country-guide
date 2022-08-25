@@ -2,10 +2,9 @@ import { useState } from "react";
 
 // styled components
 import { ThemeProvider } from "styled-components";
-import Nav from "./components/Nav";
+import Nav from "./components/Nav/Nav";
+import Search from "./components/Search/Search";
 import { lightTheme, darkTheme, GlobalStyles } from "./theme";
-
-console.log(GlobalStyles);
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -16,11 +15,9 @@ function App() {
   return (
     <>
       <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
-        <div>
-          <GlobalStyles />
-          <Nav toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
-          <h1>Hello!</h1>
-        </div>
+        <GlobalStyles />
+        <Nav toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
+        <Search />
       </ThemeProvider>
     </>
   );

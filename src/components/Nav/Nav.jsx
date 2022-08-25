@@ -35,6 +35,7 @@ const StyledToggleButton = styled.button`
   letter-spacing: 1px;
   padding: 1.2rem 0rem;
   background-color: transparent;
+  font-family: "Nunito Sans";
 `;
 
 export default function Nav({ toggleTheme, isDarkTheme }) {
