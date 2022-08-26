@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const StyledInput = styled.input`
   background-color: ${(props) => props.input};
+  border: none;
 `;
 
 export default function SearchInput() {
