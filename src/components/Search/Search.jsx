@@ -8,7 +8,7 @@ import SearchInput from "./SearchInput";
 const StyledSection = styled.section`
   max-width: 1200px;
   padding: 0 40px;
-  margin: 2rem auto;
+  margin: 3rem auto;
 `;
 
 const StyledForm = styled.form`
@@ -17,11 +17,11 @@ const StyledForm = styled.form`
   justify-content: space-between;
 `;
 
-export default function Search({ handleClick }) {
+export default function Search({ handleClick, input, handleCountryChange }) {
   return (
     <StyledSection>
       <StyledForm onSubmit={handleClick}>
-        <SearchInput />
+        <SearchInput input={input} handleCountryChange={handleCountryChange} />
         <Filter />
       </StyledForm>
     </StyledSection>
