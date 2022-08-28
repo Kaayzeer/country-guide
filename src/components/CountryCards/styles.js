@@ -60,6 +60,7 @@ const StyledCard = styled.article`
   font-weight: 600;
   grid-area: "card";
   border-radius: 8px;
+  box-shadow: ${({ theme }) => theme.boxShadow};
 `;
 
 const StyledImg = styled.img`
