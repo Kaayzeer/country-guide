@@ -17,12 +17,23 @@ const StyledForm = styled.form`
   justify-content: space-between;
 `;
 
-export default function Search({ handleClick, input, handleCountryChange }) {
+export default function Search({
+  handleClick,
+  input,
+  handleCountryChange,
+  /*   showAll, */
+  filterByRegion,
+  regionValue,
+}) {
   return (
     <StyledSection>
       <StyledForm onSubmit={handleClick}>
-        <SearchInput input={input} handleCountryChange={handleCountryChange} />
-        <Filter />
+        <SearchInput
+          input={input}
+          handleCountryChange={handleCountryChange}
+          /* showAll={showAll} */
+        />
+        <Filter filterByRegion={filterByRegion} regionValue={regionValue} />
       </StyledForm>
     </StyledSection>
   );

@@ -10,7 +10,10 @@ const StyledInput = styled.input`
   border-radius: 8px;
 `;
 
-export default function SearchInput({ input, handleCountryChange }) {
+export default function SearchInput({
+  input,
+  handleCountryChange /* , showAll  */,
+}) {
   return (
     <>
       <StyledInput
@@ -22,6 +25,9 @@ export default function SearchInput({ input, handleCountryChange }) {
         onChange={handleCountryChange}
       />
       <button type="submit">search</button>
+      {/*  <button type="text" onClick={showAll}>
+        show all
+      </button> */}
     </>
   );
 }

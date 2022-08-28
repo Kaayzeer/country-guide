@@ -42,12 +42,5 @@ export default function useFetchAll() {
     fetchedCountries();
   }, []);
 
-  /*     useEffect(() => {
-      if (input.trim().length <= 1) {
-        console.log(input);
-        fetchedCountries();
-      }
-    }, [input]); */
-
   return { allCountriesData };
 }

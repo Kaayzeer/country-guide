@@ -25,19 +25,12 @@ const StyledOption = styled.option`
   border: none;
 `;
 
-export default function Filter() {
-  const [selectValue, setSelectValue] = useState("");
-
+export default function Filter({ regionValue, filterByRegion }) {
   /*   const handleChange = (e) => {};
   console.log(e.target.value); */
 
   return (
-    <StyledSelect
-      value={selectValue}
-      onChange={(e) => {
-        setSelectValue(e.target.value);
-      }}
-    >
+    <StyledSelect value={regionValue} onChange={filterByRegion}>
       <StyledOption disabled={true} value="">
         Filter by region
       </StyledOption>

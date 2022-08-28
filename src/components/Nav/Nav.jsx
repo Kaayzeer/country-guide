@@ -21,6 +21,7 @@ const StyledNav = styled.nav`
 
 const StyledH4 = styled.h4`
   font-weight: bold;
+  cursor: pointer;
 `;
 
 const StyledSpan = styled.span`
@@ -36,6 +37,7 @@ const StyledToggleButton = styled.button`
   padding: 1.2rem 0rem;
   background-color: transparent;
   font-family: "Nunito Sans";
+  cursor: pointer;
 `;
 
 export default function Nav({ toggleTheme, isDarkTheme }) {

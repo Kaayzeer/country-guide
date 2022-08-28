@@ -21,5 +21,5 @@ export default function useFetchSingle(country) {
       }
     }
   }, [country]);
-  return { countryData };
+  return { countryData, setCountryData };
 }
