@@ -1,4 +1,6 @@
 import React from "react";
+//react-router-dom
+import { useNavigate } from "react-router-dom";
 import {
   StyledSection,
   StyledGrid,
@@ -8,12 +10,16 @@ import {
 } from "./styles";
 
 export default function CountryCards({ allCountriesData }) {
+  const navigate = useNavigate();
   return (
     <>
       <StyledSection>
         <StyledGrid>
           {allCountriesData.map((countriesData, idx) => (
-            <StyledCard key={idx}>
+            <StyledCard
+              key={idx}
+              onClick={() => navigate(`/${countriesData.name.toLowerCase()}`)}
+            >
               <StyledImg src={countriesData.flags} alt="country-image" />
               <StyledInfo>
                 <h4 className="countryName">{countriesData.name}</h4>

@@ -59,6 +59,7 @@ const StyledCard = styled.article`
   justify-content: center;
   font-weight: 600;
   grid-area: "card";
+  cursor: pointer;
   border-radius: 8px;
   box-shadow: ${({ theme }) => theme.boxShadow};
 `;
