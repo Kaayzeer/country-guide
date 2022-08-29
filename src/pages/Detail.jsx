@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+//react icons
+import { HiArrowNarrowLeft } from "react-icons/hi";
 //styled-components
 import styled from "styled-components";
 //react-router-dom
@@ -10,39 +12,93 @@ const StyledContainer = styled.section`
   max-width: 1200px;
   padding-right: 40px;
   padding-left: 40px;
+  margin: 0 auto;
+  height: 100vh;
 
-  .back {
+  .buttonWrapper {
+    margin: 4rem 0;
+    display: flex;
+    position: relative;
+
+    .back {
+      border: none;
+      outline: none;
+      padding: 0.5rem;
+      padding-left: 2.4rem;
+      padding-right: 1rem;
+      text-transform: capitalize;
+      border-radius: 4px;
+      box-shadow: ${({ theme }) => theme.boxShadow};
+      background-color: ${({ theme }) => theme.elements};
+      color: ${({ theme }) => theme.text};
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      left: 8px;
+      transform: translateY(-50%);
+    }
   }
 
   .details {
+    height: 100%;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    letter-spacing: 0.7px;
+
+    @media screen and (min-width: 1015px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
 
     img {
-      height: 200px;
-      width: 300x;
+      height: 300px;
+      width: 400x;
     }
   }
 
   .info {
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    @media screen and (min-width: 1015px) {
+      justify-content: center;
+      width: 50%;
+    }
+
+    .name {
+      font-size: 24px;
+      font-weight: 800;
+    }
   }
 
   .overall {
+    height: 250px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+    flex-direction: column;
 
-  p {
-    font-size: 14px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    p {
+      font-size: 14px;
+      font-weight: 600;
+
+      span {
+        font-weight: 200;
+      }
+    }
   }
 
   .borderCountries {
@@ -74,8 +130,6 @@ export default function Detail() {
 
   useEffect(() => {
     if (countryData.length > 0) {
-      console.log(countryData[0]?.currencies);
-
       // manipulate nativeName and currency
       let nativeName = [];
       let currency = [];
@@ -88,7 +142,6 @@ export default function Detail() {
       // ------------------------
 
       setSingle({
-        ...single,
         countryFlag: countryData[0]?.flags.svg,
         countryName: countryData[0]?.name?.common,
         nativeName: nativeName[0],
@@ -103,22 +156,49 @@ export default function Detail() {
     }
   }, [countryData]);
 
+  const dots = (x) => {
+    return x.split(" ");
+  };
+
   return (
     <StyledContainer>
-      <button className="back">back</button>
+      <div className="buttonWrapper">
+        <button className="back">back</button>
+        <HiArrowNarrowLeft className="arrow" />
+      </div>
+
       <div className="details">
-        <img src={single.countryFlag} alt="flag" />
+        <div className="imgWrapper">
+          <img src={single.countryFlag} alt="flag" />
+        </div>
+
         <div className="info">
           <h3 className="name">{single.countryName}</h3>
           <div className="overall">
-            <p className="native">{single.nativeName}</p>
-            <p className="pop">{single.population}</p>
-            <p className="region">{single.region}</p>
-            <p className="subreg">{single.subRegion}</p>
-            <p className="capital">{single.capital}</p>
-            <p className="tld">{single.topLevelDomain}</p>
-            <p className="currencies">{single.currencies}</p>
-            <p className="languages">{single.languages}</p>
+            <p className="native">
+              Native Name: <span>{single.nativeName}</span>
+            </p>
+            <p className="pop">
+              Population: <span>{single.population}</span>
+            </p>
+            <p className="region">
+              Region: <span>{single.region}</span>
+            </p>
+            <p className="subreg">
+              Sub Region: <span>{single.subRegion}</span>
+            </p>
+            <p className="capital">
+              Capital:<span> {single.capital}</span>
+            </p>
+            <p className="tld">
+              Top Level Domain: <span>{single.topLevelDomain}</span>
+            </p>
+            <p className="currencies">
+              Currencies: <span>{single.currencies}</span>
+            </p>
+            <p className="languages">
+              Languages: <span>{single.languages}</span>
+            </p>
             <div className="borderCountries">
               <p className="btnPara"></p>
               <span className="countries"></span>
