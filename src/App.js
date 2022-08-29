@@ -1,6 +1,6 @@
 import { useState } from "react";
 //react-router-dom
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 // styled components
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "./theme";
@@ -25,7 +25,7 @@ function App() {
         <Nav toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/:name" element={<Detail />} />
+          <Route path="/:nameParam" element={<Detail />} />
         </Routes>
       </ThemeProvider>
     </div>

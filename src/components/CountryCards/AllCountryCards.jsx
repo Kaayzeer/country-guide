@@ -9,8 +9,9 @@ import {
   StyledInfo,
 } from "./styles";
 
-export default function CountryCards({ allCountriesData }) {
+export default function CountryCards({ allCountriesData, goToDetail }) {
   const navigate = useNavigate();
+
   return (
     <>
       <StyledSection>
@@ -18,7 +19,7 @@ export default function CountryCards({ allCountriesData }) {
           {allCountriesData.map((countriesData, idx) => (
             <StyledCard
               key={idx}
-              onClick={() => navigate(`/${countriesData.name.toLowerCase()}`)}
+              onClick={() => goToDetail(countriesData.name)}
             >
               <StyledImg src={countriesData.flags} alt="country-image" />
               <StyledInfo>

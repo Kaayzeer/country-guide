@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+//react-router-dom
+import { useNavigate } from "react-router-dom";
 //components
 import Search from "../components/Search/Search";
 import CountryCards from "../components/CountryCards/CountryCards";
@@ -9,8 +10,11 @@ import FilteredCards from "../components/CountryCards/FilteredCards";
 import useFetchAll from "../hooks/useFetchAll";
 import useFetchSingle from "../hooks/useFetchSingle";
 import useFetchRegion from "../hooks/useFetchRegion";
+import Detail from "./Detail";
 
 export default function Home() {
+  const navigate = useNavigate();
+
   //countryStates
   const [country, setCountry] = useState("");
   const [input, setInput] = useState("");
@@ -57,6 +61,11 @@ export default function Home() {
       showAll();
     }
   };
+
+  const goToDetail = (singleCountry) => {
+    setCountry(singleCountry);
+    navigate(`/${singleCountry}`);
+  };
   return (
     <>
       <Search
@@ -74,6 +83,7 @@ export default function Home() {
         <AllCountryCards
           allCountriesData={allCountriesData}
           regionData={regionData}
+          goToDetail={goToDetail}
         />
       )}
       {regionData.length > 0 && countryData.length <= 0 && (

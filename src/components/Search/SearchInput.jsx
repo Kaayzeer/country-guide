@@ -9,10 +9,6 @@ const StyledContainer = styled.div`
   width: 100%;
   margin: 0 auto;
 
-  @media screen and (min-width: 550px) {
-    flex-direction: row;
-  }
-
   input {
     background-color: ${(props) => props.input};
     border: none;
@@ -25,7 +21,7 @@ const StyledContainer = styled.div`
     }
   }
 
-  button {
+  .button {
     position: absolute;
     top: 0;
     left: 5px;
@@ -61,7 +57,7 @@ export default function SearchInput({
         value={input}
         onChange={handleCountryChange}
       />
-      <button type="submit">
+      <button type="submit" className="button">
         <AiOutlineSearch className="icon" />
       </button>
       {/*  <button type="text" onClick={showAll}>
