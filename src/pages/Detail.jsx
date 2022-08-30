@@ -4,7 +4,7 @@ import { HiArrowNarrowLeft } from "react-icons/hi";
 //styled-components
 import styled from "styled-components";
 //react-router-dom
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 //hooks
 import useFetchSingle from "../hooks/useFetchSingle";
 
@@ -27,10 +27,15 @@ const StyledContainer = styled.section`
       padding-left: 2.4rem;
       padding-right: 1rem;
       text-transform: capitalize;
+      cursor: pointer;
       border-radius: 4px;
       box-shadow: ${({ theme }) => theme.boxShadow};
       background-color: ${({ theme }) => theme.elements};
       color: ${({ theme }) => theme.text};
+      &:hover {
+        opacity: 0.7;
+        transition: all 0.3s ease;
+      }
     }
 
     .arrow {
@@ -148,7 +153,9 @@ export default function Detail() {
       languages: "",
     },
   ]);
-  let { nameParam } = useParams();
+
+  const navigate = useNavigate();
+  const { nameParam } = useParams();
 
   const { countryData } = useFetchSingle(nameParam);
 
@@ -182,14 +189,16 @@ export default function Detail() {
     }
   }, [countryData]);
 
-  const dots = (x) => {
-    return x.split(" ");
+  const goBack = () => {
+    navigate("/");
   };
 
   return (
     <StyledContainer>
       <div className="buttonWrapper">
-        <button className="back">back</button>
+        <button className="back" onClick={goBack}>
+          back
+        </button>
         <HiArrowNarrowLeft className="arrow" />
       </div>
 
