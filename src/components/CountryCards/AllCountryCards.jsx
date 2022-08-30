@@ -1,6 +1,5 @@
 import React from "react";
-//react-router-dom
-import { useNavigate } from "react-router-dom";
+
 import {
   StyledSection,
   StyledGrid,
@@ -10,8 +9,6 @@ import {
 } from "./styles";
 
 export default function CountryCards({ allCountriesData, goToDetail }) {
-  const navigate = useNavigate();
-
   return (
     <>
       <StyledSection>

@@ -1,6 +1,5 @@
 import React from "react";
-//react-router-dom
-import { useNavigate } from "react-router-dom";
+
 import {
   StyledSection,
   StyledGrid,
@@ -9,8 +8,7 @@ import {
   StyledInfo,
 } from "./styles";
 
-export default function FilteredCards({ regionData }) {
-  const navigate = useNavigate();
+export default function FilteredCards({ regionData, goToDetail }) {
   console.log(regionData);
 
   return (
@@ -20,7 +18,7 @@ export default function FilteredCards({ regionData }) {
           <StyledCard
             key={idx}
             className="card"
-            onClick={() => navigate(`/${country.name.toLowerCase()}`)}
+            onClick={() => goToDetail(regionData.name)}
           >
             <StyledImg src={country.flags} alt="country-image" />
             <StyledInfo className="infoContainer">

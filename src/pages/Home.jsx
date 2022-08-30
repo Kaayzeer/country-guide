@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 //react-router-dom
 import { useNavigate } from "react-router-dom";
 //components
@@ -10,7 +10,6 @@ import FilteredCards from "../components/CountryCards/FilteredCards";
 import useFetchAll from "../hooks/useFetchAll";
 import useFetchSingle from "../hooks/useFetchSingle";
 import useFetchRegion from "../hooks/useFetchRegion";
-import Detail from "./Detail";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -25,7 +24,12 @@ export default function Home() {
   const { countryData, setCountryData } = useFetchSingle(country);
   const { regionData, setRegionData } = useFetchRegion(regionValue);
 
-  console.log(allCountriesData);
+  // scroll event
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+    });
+  };
 
   //resets
   const showAll = () => {
@@ -63,9 +67,10 @@ export default function Home() {
   };
 
   const goToDetail = (singleCountry) => {
-    setCountry(singleCountry);
     navigate(`/${singleCountry}`);
+    goToTop();
   };
+
   return (
     <>
       <Search
@@ -77,7 +82,7 @@ export default function Home() {
         filterByRegion={filterByRegion}
       />
       {countryData.length > 0 && regionData.length <= 0 && (
-        <CountryCards countryData={countryData[0]} />
+        <CountryCards countryData={countryData[0]} goToDetail={goToDetail} />
       )}
       {countryData.length <= 0 && regionData.length <= 0 && (
         <AllCountryCards
@@ -87,7 +92,7 @@ export default function Home() {
         />
       )}
       {regionData.length > 0 && countryData.length <= 0 && (
-        <FilteredCards regionData={regionData} />
+        <FilteredCards regionData={regionData} goToDetail={goToDetail} />
       )}
     </>
   );
