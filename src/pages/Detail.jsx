@@ -57,19 +57,42 @@ const StyledContainer = styled.section`
     }
 
     img {
-      height: 300px;
-      width: 400x;
+      height: 200px;
+      width: 300x;
+
+      @media screen and (min-width: 500px) {
+        height: 250px;
+        width: 400x;
+      }
+
+      @media screen and (min-width: 800px) {
+        height: 300px;
+        width: 400x;
+      }
     }
   }
 
   .info {
-    width: 60%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     flex-wrap: wrap;
     margin: 0 auto;
+
+    @media screen and (min-width: 400px) {
+      padding-left: 1rem;
+    }
+
+    @media screen and (min-width: 500px) {
+      width: 80%;
+    }
+
+    @media screen and (min-width: 700px) {
+      width: 60%;
+    }
+
     @media screen and (min-width: 1015px) {
       justify-content: center;
       width: 50%;
@@ -82,7 +105,6 @@ const StyledContainer = styled.section`
   }
 
   .overall {
-    height: 250px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -90,6 +112,10 @@ const StyledContainer = styled.section`
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
+
+    @media screen and (min-width: 800px) {
+      height: 250px;
+    }
 
     p {
       font-size: 14px;
