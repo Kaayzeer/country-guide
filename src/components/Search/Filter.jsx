@@ -10,6 +10,7 @@ const continents = ["Africa", "America", "Asia", "Europe", "Oceania"];
 const StyledContainer = styled.div`
   position: relative;
   width: 50%;
+  max-width: 200px;
 
   .selectIcon {
     position: absolute;
