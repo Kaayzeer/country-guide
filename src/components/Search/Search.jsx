@@ -33,13 +33,9 @@ const StyledForm = styled.form`
     background-color: ${({ theme }) => theme.elements};
     border: none;
     width: 100%;
-    max-width: 350px;
-    padding: 0.7rem 0rem;
+    max-width: 300px;
+    padding: 0.7rem 0rem 0.7rem 40px;
     border-radius: 8px;
-
-    &::placeholder {
-      padding: 0px 40px;
-    }
   }
 
   .button {
